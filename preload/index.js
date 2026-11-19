@@ -33,6 +33,13 @@ contextBridge.exposeInMainWorld('hivemind', {
     ipcRenderer.on('hivemind:install', receive)
     return () => ipcRenderer.removeListener('hivemind:install', receive)
   },
+  // The IV Newsletter signup (main/newsletter.js)
+  newsletter: {
+    status: () => ipcRenderer.invoke('hivemind:newsletter-status'),
+    join: (input) => ipcRenderer.invoke('hivemind:newsletter-join', input),
+    closeCard: () => ipcRenderer.invoke('hivemind:newsletter-close-card'),
+    openPage: () => ipcRenderer.invoke('hivemind:newsletter-open-page')
+  },
   updateState: () => ipcRenderer.invoke('hivemind:update-state'),
   checkUpdate: () => ipcRenderer.invoke('hivemind:update-check'),
   installUpdate: () => ipcRenderer.invoke('hivemind:update-install'),

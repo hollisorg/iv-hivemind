@@ -9,6 +9,7 @@ import voiceIcon from './app-icons/voice.png'
 import downloaderIcon from './app-icons/downloader.png'
 import { RichText } from './rich-text.jsx'
 import { BusinessSwitcher, Businesses } from './businesses.jsx'
+import NewsletterBox from './NewsletterBox.jsx'
 import './styles.css'
 
 // Hivemind floats on the desktop: a transparent, borderless overlay. Everything the person can see or click carries
@@ -675,6 +676,10 @@ function Settings({ update }) {
             : <button type="button" className="primary" disabled={checking || u.status === 'checking' || u.status === 'downloading' || u.status === 'dev'} onClick={check}>{u.status === 'checking' || checking ? 'Checking…' : 'Check for updates'}</button>}
         </div>
         {u.checkedAt && <p className="install-note">Last checked {new Date(u.checkedAt).toLocaleString()}</p>}
+      </section>
+      <section className="memory-section">
+        <h3>The IV Newsletter</h3>
+        <NewsletterBox api={api.newsletter} title={false} />
       </section>
     </div>
   )

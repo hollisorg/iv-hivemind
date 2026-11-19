@@ -15,6 +15,7 @@ import { PASTE_PROMPT, gatherMaterial, importSources, parseSuggestions, runDisti
 import { appTools } from './app-tools.js'
 import { businesses } from './businesses.js'
 import { initUpdater, updateState } from './updater.js'
+import { createNewsletter, fileStore, NEWSLETTER_PAGE } from './newsletter.js'
 
 const directory = dirname(fileURLToPath(import.meta.url))
 let window
@@ -136,6 +137,18 @@ function start() {
   // Hivemind's own updates (from the public releases-only repo). The dock shows "Restart to update" once one is ready.
   const updater = initUpdater(state => { if (window && !window.isDestroyed()) window.webContents.send('hivemind:update', state) })
   handle('update-state', () => updateState())
+  // The IV Newsletter (main/newsletter.js, shared by every IV app): sends only an address typed and joined, keeps only
+  // the join date. A copy with its own data folder (HIVEMIND_DATA_DIR) is a test copy: it only sends to IV_NEWSLETTER_URL.
+  const newsletter = createNewsletter({
+    app: 'iv-hivemind',
+    version: app.getVersion(),
+    store: fileStore(join(app.getPath('userData'), 'newsletter.json')),
+    url: process.env.HIVEMIND_DATA_DIR ? process.env.IV_NEWSLETTER_URL || 'http://127.0.0.1:9/iv-newsletter' : undefined
+  })
+  handle('newsletter-status', () => newsletter.status())
+  handle('newsletter-join', (input) => newsletter.join(input))
+  handle('newsletter-close-card', () => newsletter.closeCard())
+  handle('newsletter-open-page', () => shell.openExternal(NEWSLETTER_PAGE))
   handle('update-check', () => updater.check())
   handle('update-install', () => updater.install())
   handle('open-page', (id) => {
