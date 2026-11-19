@@ -14,5 +14,4 @@ export const SHARED = [
   ['shared/licenses/Barlow-Condensed-OFL.txt', 'src/renderer/src/assets/licenses/Barlow-Condensed-OFL.txt'],
   ['shared/licenses/DM-Sans-OFL.txt', 'src/renderer/src/assets/licenses/DM-Sans-OFL.txt'],
   ['shared/licenses/JetBrains-Mono-OFL.txt', 'src/renderer/src/assets/licenses/JetBrains-Mono-OFL.txt'],
-  ['test/fixtures/fake-app-mcp.mjs', 'test/fixtures/fake-app-mcp.mjs'],
 ]
