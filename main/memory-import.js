@@ -5,9 +5,9 @@
 import { existsSync, readdirSync, readFileSync, statSync } from 'node:fs'
 import { homedir } from 'node:os'
 import { join } from 'node:path'
-import { AGENT_NAMES, killTree, parseLine, spawnAgent } from '../../../src/service/agentrun.js'
-import { codexConfigured, findHarnesses } from '../../../src/service/harness.js'
-import { looksSecret, MAX_TEXT } from '../../../src/service/iv-memory.js'
+import { AGENT_NAMES, killTree, parseLine, spawnAgent } from '../shared/agentrun.js'
+import { codexConfigured, findHarnesses } from '../shared/harness.js'
+import { looksSecret, MAX_TEXT } from '../shared/iv-memory.js'
 
 const PER_FILE = 24000
 const TOTAL = 70000

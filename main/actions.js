@@ -2,7 +2,7 @@
 // The business comes from the turn Hivemind started, never from the agent. Reopening only launches the receiving
 // app with an existing handoff ID; that app's own receipt rules return its existing project or draft, so nothing
 // new is created, approved, spent, scheduled or published here.
-import { APPS } from '../../../src/service/iv-workspace.js'
+import { APPS } from '../shared/iv-workspace.js'
 
 const appNames = { outreach: 'IV Outreach', studio: 'IV Studio', signal: 'IV Signal' }
 const filler = new Set(('a an and any app apps at back be bring can could continue do for from get go handoff handoffs i ' +

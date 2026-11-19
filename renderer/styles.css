@@ -1,24 +1,24 @@
 @font-face {
   font-family: Barlow Condensed;
-  src: url('../../../src/renderer/src/assets/barlow-condensed-800.woff2') format('woff2');
+  src: url('../shared/barlow-condensed-800.woff2') format('woff2');
   font-weight: 800;
   font-display: swap;
 }
 @font-face {
   font-family: DM Sans;
-  src: url('../../../src/renderer/src/assets/dm-sans-400.woff2') format('woff2');
+  src: url('../shared/dm-sans-400.woff2') format('woff2');
   font-weight: 400;
   font-display: swap;
 }
 @font-face {
   font-family: DM Sans;
-  src: url('../../../src/renderer/src/assets/dm-sans-600.woff2') format('woff2');
+  src: url('../shared/dm-sans-600.woff2') format('woff2');
   font-weight: 600;
   font-display: swap;
 }
 @font-face {
   font-family: JetBrains Mono;
-  src: url('../../../src/renderer/src/assets/jetbrains-mono-400.woff2') format('woff2');
+  src: url('../shared/jetbrains-mono-400.woff2') format('woff2');
   font-display: swap;
 }
 

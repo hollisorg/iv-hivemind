@@ -3,7 +3,7 @@
 import { readFileSync } from 'node:fs'
 import { homedir } from 'node:os'
 import { join } from 'node:path'
-import { codexConfigured } from '../../../src/service/harness.js'
+import { codexConfigured } from '../shared/harness.js'
 
 export const CLAUDE_MODELS = [
   { id: '', name: 'Your Claude Code default' },

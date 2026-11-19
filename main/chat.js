@@ -5,8 +5,8 @@
 import { randomUUID } from 'node:crypto'
 import { existsSync, mkdirSync, readFileSync, renameSync, rmSync, writeFileSync } from 'node:fs'
 import { join } from 'node:path'
-import { AGENT_NAMES, killTree, parseLine, spawnAgent, stepLabel } from '../../../src/service/agentrun.js'
-import { codexConfigured, findHarnesses } from '../../../src/service/harness.js'
+import { AGENT_NAMES, killTree, parseLine, spawnAgent, stepLabel } from '../shared/agentrun.js'
+import { codexConfigured, findHarnesses } from '../shared/harness.js'
 import { startBridge } from './bridge.js'
 import { validModel } from './models.js'
 

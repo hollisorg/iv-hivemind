@@ -6,7 +6,7 @@ import { existsSync } from 'node:fs'
 import { homedir } from 'node:os'
 import { join } from 'node:path'
 import { DatabaseSync } from 'node:sqlite'
-import { IVWorkspace, cleanBrand, fingerprint, workspaceDir } from '../../../src/service/iv-workspace.js'
+import { IVWorkspace, cleanBrand, fingerprint, workspaceDir } from '../shared/iv-workspace.js'
 
 const appData = () => process.env.APPDATA || join(homedir(), '.config')
 // Where Outreach and Signal keep their own businesses (each app's own data folder and table).

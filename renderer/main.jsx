@@ -1,6 +1,6 @@
 import { useCallback, useEffect, useLayoutEffect, useRef, useState } from 'react'
 import { createRoot } from 'react-dom/client'
-import logo from '../../../src/renderer/src/assets/hivemind-logo.png'
+import logo from '../shared/hivemind-logo.png'
 import chatIcon from './app-icons/chat.png'
 import outreachIcon from './app-icons/outreach.png'
 import studioIcon from './app-icons/studio.png'
@@ -32,9 +32,9 @@ const orbitRadius = 240
 const panelGap = 320
 
 for (const href of [
-  new URL('../../../src/renderer/src/assets/licenses/Barlow-Condensed-OFL.txt', import.meta.url).href,
-  new URL('../../../src/renderer/src/assets/licenses/DM-Sans-OFL.txt', import.meta.url).href,
-  new URL('../../../src/renderer/src/assets/licenses/JetBrains-Mono-OFL.txt', import.meta.url).href,
+  new URL('../shared/licenses/Barlow-Condensed-OFL.txt', import.meta.url).href,
+  new URL('../shared/licenses/DM-Sans-OFL.txt', import.meta.url).href,
+  new URL('../shared/licenses/JetBrains-Mono-OFL.txt', import.meta.url).href,
 ]) {
   const notice = document.createElement('link')
   notice.rel = 'license'

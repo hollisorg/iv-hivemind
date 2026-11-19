@@ -1,7 +1,7 @@
 // IV Hivemind updates itself, the way IV Studio and IV Signal do: it checks on launch and every six hours, downloads a
 // new version in the background, and installs it when the person clicks "Restart to update" or closes Hivemind.
 // No key or sign-in is needed: installers are published to a public, releases-only repo (hollisorg/iv-hivemind-releases).
-// The source code stays in the private repo; only the built app and its update file are public.
+// The source lives in hollisorg/iv-hivemind; the releases repo holds only the built app and its update file.
 // HIVEMIND_UPDATE_FEED (a URL with a latest.yml) points a test copy at a local feed; such a copy never installs.
 import { app } from 'electron'
 import electronUpdater from 'electron-updater'

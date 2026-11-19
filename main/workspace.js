@@ -2,7 +2,7 @@ import { spawn } from 'node:child_process'
 import { existsSync, statSync } from 'node:fs'
 import { join, resolve } from 'node:path'
 import { DatabaseSync } from 'node:sqlite'
-import { APPS, handoffArgument, workspaceDir } from '../../../src/service/iv-workspace.js'
+import { APPS, handoffArgument, workspaceDir } from '../shared/iv-workspace.js'
 
 export function readWorkspace(root = workspaceDir()) {
   const path = join(root, 'workspace.db')
