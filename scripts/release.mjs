@@ -9,8 +9,11 @@ import { fileURLToPath } from 'node:url'
 
 const root = resolve(dirname(fileURLToPath(import.meta.url)), '..')
 const RELEASES = 'hollisorg/iv-hivemind-releases'
-const run = (cmd, args, opts = {}) => execFileSync(cmd, args, { cwd: root, stdio: 'inherit', shell: process.platform === 'win32', ...opts })
-const read = (cmd, args) => execFileSync(cmd, args, { cwd: root, encoding: 'utf8', shell: process.platform === 'win32' }).trim()
+// Only npm needs the shell on Windows (it's npm.cmd). git and gh run directly, so arguments with spaces, like the
+// release title, reach them as one argument; through the shell they were split into words.
+const shell = (cmd) => process.platform === 'win32' && cmd === 'npm'
+const run = (cmd, args, opts = {}) => execFileSync(cmd, args, { cwd: root, stdio: 'inherit', shell: shell(cmd), ...opts })
+const read = (cmd, args) => execFileSync(cmd, args, { cwd: root, encoding: 'utf8', shell: shell(cmd) }).trim()
 
 const args = process.argv.slice(2)
 const publishAt = args.indexOf('--publish')
