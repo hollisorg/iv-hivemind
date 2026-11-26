@@ -27,7 +27,7 @@ const released = read('gh', ['release', 'list', '-R', RELEASES, '--limit', '200'
 if (released.includes(tag)) throw Error(`${tag} is already released on ${RELEASES}. Raise the version in package.json.`)
 
 run('npm', ['test'])
-run('npm', ['run', 'dist'])
+run('npm', ['run', 'dist:win-release'])
 const files = ['IV-Hivemind-Setup.exe', 'IV-Hivemind-Setup.exe.blockmap', 'latest.yml'].map(f => join(root, 'dist', f))
 for (const f of files) if (!existsSync(f)) throw Error(`Build is missing ${f}`)
 const feed = readFileSync(files[2], 'utf8')
